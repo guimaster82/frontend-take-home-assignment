@@ -1,7 +1,11 @@
 import * as React from 'react';
+import Container from './components/Container';
 
-const App: React.FunctionComponent = () => {
-  return <div>Origin Frontend Take Home</div>;
+export const App: React.FunctionComponent = () => {
+  return (
+    <div>
+      <h1>Origin Frontend Take Home</h1>
+      <Container />
+    </div>
+  );
 };
-
-export default App;
