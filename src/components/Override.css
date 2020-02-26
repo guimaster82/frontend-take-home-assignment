@@ -1,0 +1,29 @@
+.btn-finishCustom {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 2.25rem;
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.btn-backCustom {
+  color: #fff;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 3.25rem;
+  width: 30;
+  height: 30;
+}
+
+.leftAlign{
+  padding-left: 50px;
+  padding-top: 15px;
+ }
+
+.rightAlign{
+  text-align:right;
+  vertical-align:middle;
+  padding-right: 50px;
+ }

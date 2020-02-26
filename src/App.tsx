@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Container from './components/Container';
+import Logo from './icons/logo.svg'
 
 export const App: React.FunctionComponent = () => {
   return (
     <div>
-      <h1>Origin Frontend Take Home</h1>
+      <Logo width="50" height="52" />
       <Container />
     </div>
   );
