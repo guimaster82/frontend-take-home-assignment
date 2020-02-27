@@ -24,23 +24,23 @@ class Container extends Component {
   }
 
   handleValueChange = (event, maskedvalue, floatvalue) => {
-      this.setState({amount: floatvalue});
+    this.setState({ amount: floatvalue });
   },
 
   handleDateIncrement = (event) => {
-      this.setState({months: this.state.months + 1});
+    this.setState({ months: this.state.months + 1 });
   },
 
   handleDateDecrement = (event) => {
-      if (this.state.months > 1) {
-        this.setState({months: this.state.months - 1});
-      }
+    if (this.state.months > 1) {
+      this.setState({ months: this.state.months - 1 });
+    }
   },
 
 
-  renderNewDate = () => {
+  renderNewDate = (separator = "  ") => {
     const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+      "July", "August", "September", "October", "November", "December"
     ];
 
     let newDate = new Date();
@@ -49,39 +49,39 @@ class Container extends Component {
 
     month = (month + this.state.months) % 12;
 
-    year = year + Math.floor((this.state.months+1)/12);
+    year = year + Math.floor((this.state.months + 1) / 12);
 
-    return <spam><strong>{monthNames[month]}</strong> {year}</spam>;
+    return <spam><strong>{monthNames[month]}</strong>{separator}{year}</spam>;
   },
 
-  render(){
-     return (
-       <div class="container">
-         <div class="mb-4">
-           <NavBar />
-         </div>
-         <div class="card mb-4">
-           <div><Header /></div>
-           <div>
-             <InputData
-                onValueChange={this.handleValueChange}
-                onDateIncrement={this.handleDateIncrement}
-                onDateDecrement={this.handleDateDecrement}
-                data={this.state}
-                renderNewDate={this.renderNewDate}
-              />
-            </div>
-           <div>
-             <CalcResults
-               data={this.state}
-               renderNewDate={this.renderNewDate}
-             />
-           </div>
-           <div class="m-4"><FinishKey /></div>
-         </div>
-       </div>
-     );
-   }
+  render() {
+    return (
+      <div class="container">
+        <div class="mb-4">
+          <NavBar />
+        </div>
+        <div class="card mb-4">
+          <div><Header /></div>
+          <div>
+            <InputData
+              onValueChange={this.handleValueChange}
+              onDateIncrement={this.handleDateIncrement}
+              onDateDecrement={this.handleDateDecrement}
+              data={this.state}
+              renderNewDate={this.renderNewDate}
+            />
+          </div>
+          <div>
+            <CalcResults
+              data={this.state}
+              renderNewDate={this.renderNewDate}
+            />
+          </div>
+          <div class="m-3"><FinishKey /></div>
+        </div>
+      </div>
+    );
+  }
 
 }
 

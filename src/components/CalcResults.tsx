@@ -6,31 +6,43 @@ class CalcResults extends Component {
     super(props)
   }
 
-calculateValue() {
-  let value = this.props.data.amount;
-  let monts = this.props.data.months;
+  calculateValue = () => {
+    let value = this.props.data.amount;
+    let monts = this.props.data.months;
 
-  value = value / monts;
-  return value.toFixed(0);
-}
+    value = value / monts;
+    return value.toFixed(0);
+  }
 
-  render(){
-     return (
-       <div class="card m-3 mb-4">
-       <div class="row">
-         <div class="col leftAlign">
-          <strong>Monthly amount</strong>
-         </div>
-         <div class="col rightAlign">
-          <h1><CurrencyFormat value={this.calculateValue()} displayType={'text'} thousandSeparator={true} prefix={'$'} /></h1>
-         </div>
-       </div>
-         <div class="card-header">
-        You are planning <strong>{this.props.data.months} monthly deposits </strong> to reach your <strong><CurrencyFormat value={this.calculateValue()} displayType={'text'} thousandSeparator={true} prefix={'$'} /></strong> goal by {this.props.renderNewDate()}
+  renderMonths = () => {
+    const monts = this.props.data.months;
+
+    return <spam>{monts} monthly {monts > 1 ? 'deposits' : 'deposit'}</spam>;
+  }
+
+  render() {
+    return (
+      <div class="card m-3 mb-4">
+        <div class="row">
+          <div class="col leftAlign">
+            <strong>Monthly amount</strong>
+          </div>
+          <div class="col rightAlign lightBlueCustom">
+            <h1><CurrencyFormat value={this.calculateValue()} displayType={'text'} thousandSeparator={true} prefix={'$'} /></h1>
+          </div>
         </div>
-       </div>
-     );
-   }
+        <div class="card-header">
+          <spam>
+            You are planning
+            <strong> {this.renderMonths()} </strong>
+            to reach your
+            <strong> <CurrencyFormat value={this.props.data.amount} displayType={'text'} thousandSeparator={true} prefix={'$'} /> </strong>
+            goal by {this.props.renderNewDate()}
+          </spam>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default CalcResults

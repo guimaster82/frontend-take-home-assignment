@@ -4,8 +4,8 @@ import Logo from './icons/logo.svg'
 
 export const App: React.FunctionComponent = () => {
   return (
-    <div>
-      <Logo width="50" height="52" />
+    <div class="bgLighGreyBlueCustom">
+      <Logo width="60" height="52" />
       <Container />
     </div>
   );
